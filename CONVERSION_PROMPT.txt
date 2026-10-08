@@ -1,0 +1,64 @@
+You are a senior C#/.NET desktop architect and UI/UX engineer. Convert the attached HTML/CSS/JavaScript calculator/tool source into a beautiful, professional native Windows desktop application.
+
+TARGET:
+- C#
+- .NET 10 Windows
+- Windows Forms
+- Visual Studio Community 2026
+- Windows 10/11
+- Offline normal operation
+- No WebView wrapper unless a feature genuinely cannot be implemented natively.
+
+SOURCE OF TRUTH:
+Analyze every HTML, CSS and JavaScript block in the attached source. Preserve all pages, controls, calculations, validation, buttons, navigation, output, printing/exporting and images. Convert the implementation rather than merely displaying the old web pages.
+
+CONVERSION:
+HTML elements -> native WinForms controls.
+CSS -> C# WinForms layout, fonts, colors, spacing, cards and styling.
+JavaScript functions -> strongly typed C# methods/services.
+HTML tables -> DataGridView.
+Browser alerts -> friendly MessageBox/custom notifications.
+Charts -> native/custom-painted WinForms chart controls or a .NET chart library.
+Browser downloads -> SaveFileDialog.
+Printing/PDF -> native PrintDocument/PDF-capable .NET library.
+
+TOOLS IN THE SUPPLIED SOURCE:
+1. PDF to Image Converter
+2. Code 39 Barcode Generator
+3. PDF417 Barcode Generator
+4. Age Calculator
+5. Pakistani Salaried Person Tax Calculator
+6. Pakistan Business Tax Calculator
+7. Loan EMI Calculator with amortization schedule
+
+UI:
+Create a polished desktop shell with a dark professional left sidebar, attractive header, cards, consistent typography, subtle borders/shadows, keyboard-friendly controls, good spacing and proper resizing. Add a dashboard containing a card for every tool. Each tool should have a dedicated UserControl or Form.
+
+FUNCTIONALITY:
+- Age calculator: years/months/days and total days/weeks/hours/minutes/seconds.
+- Salaried tax: preserve all supplied historical tax-year slabs and calculations exactly as provided in the source.
+- Business tax: preserve supplied FBR/business slabs, 40% professional AOP cap and 10% surcharge logic.
+- Loan EMI: support zero-interest and standard compound-interest calculations, years/months tenure, monthly EMI, principal, interest, total payable and year-wise amortization schedule. Provide print/save/export functions where present in the source.
+- Code 39: generate a PNG barcode from user input and save it.
+- PDF417: generate a PNG PDF417 barcode from user input and save it; preserve configurable settings where practical.
+- PDF to Image: select a PDF, render every page at high quality, show previews and save individual pages as PNG.
+
+ARCHITECTURE:
+Use a clean structure:
+Forms/
+Controls/
+Services/
+Models/
+Helpers/
+Assets/
+Resources/
+Keep UI, calculations and file-processing logic separated. Use nullable reference types and clear naming. Do not put the whole application into one Form.cs file.
+
+DEPENDENCIES:
+Replace browser-only libraries such as JsBarcode, bwip-js, pdf.js, Chart.js and html2pdf.js with suitable C#/.NET libraries or native WinForms functionality. Prefer ZXing.Net for barcode generation and a suitable PDF rendering library for PDF-to-image conversion.
+
+QUALITY:
+The solution must build without compilation errors after NuGet restore. It must start with F5, have no placeholder buttons, and every included tool must perform its actual calculation/conversion. Handle invalid input and exceptions gracefully.
+
+PROJECT:
+Create a complete .sln and .csproj, all C# source files, README, installation/build instructions, and a publish/installer-ready structure. The final output should be a ZIP containing the complete Visual Studio project.
