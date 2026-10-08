@@ -43,6 +43,13 @@ jobs:
       - name: Publish self-contained Windows application
         run: dotnet publish CalculatorSuite/CalculatorSuite.csproj --configuration Release --runtime win-x64 --self-contained true --output publish
 
+      - name: Upload self-contained Windows application
+        uses: actions/upload-artifact@v6
+        with:
+          name: CalculatorSuite-win-x64
+          path: publish
+          if-no-files-found: error
+
       - name: Install Inno Setup
         shell: pwsh
         run: choco install innosetup --no-progress --yes
